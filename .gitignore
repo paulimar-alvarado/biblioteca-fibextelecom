@@ -1,6 +1,4 @@
 node_modules/
-uploads/
+build/
 .env
 *.log
-frontend/build/
-frontend/.env
