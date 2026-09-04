@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
-import api from '../api';
+import api, { API_BASE_URL } from '../api';
 import { Container, Row, Col, Card, Form, Button, Table, Modal, Nav, Badge, Spinner, InputGroup, Dropdown, FormCheck } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import {
@@ -311,7 +311,7 @@ const AdminPanel = () => {
 
   const handlePreview = (manual) => {
     const token = localStorage.getItem('token');
-    setPreviewUrl(`/api/manuals/preview/${manual._id}?token=${token}`);
+    setPreviewUrl(`${API_BASE_URL}/manuals/preview/${manual._id}?token=${token}`);
     setShowPreviewModal(true);
   };
 

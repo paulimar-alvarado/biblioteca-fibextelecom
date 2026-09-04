@@ -1,11 +1,13 @@
 import axios from 'axios';
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || (
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:5000/api'
+    : '/api'
+);
+
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || (
-    window.location.hostname === 'localhost'
-      ? 'http://localhost:5000/api'
-      : '/api'
-  )
+  baseURL: API_BASE_URL
 });
 
 api.interceptors.request.use((config) => {
@@ -29,3 +31,4 @@ api.interceptors.response.use(
 );
 
 export default api;
+export { API_BASE_URL };
